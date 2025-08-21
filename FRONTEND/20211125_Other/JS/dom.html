@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            window.addEventListener("load",function(){
+                window.alert("1");
+                //dom트리에서 'button'객체 찾기.
+                var btobj = document.querySelector("button");
+                //button객체 이용해서 text node찾기.
+                console.log(btobj.innerHTML);
+                var divobj = document.querySelector("div");
+                console.log(divobj.innerHTML);
+
+                //innerText : element객체의 textnode값 얻기
+                console.log(divobj.innerText);
+
+                var imgobj = document.querySelector('img');
+                console.log(imgobj.src+':'+imgobj.alt);
+            });
+        </script>
+    </head>
+    <body>
+        <script>window.alert("2");</script>
+        <button type="button">일반버튼</button>
+        <div>
+            미 항공우주국(NASA)의 화성탐사로버 큐리오시티가 새로 촬영한 화성의 놀랍고 광활한 풍경 이미지를 보내왔다.<br> 
+            거의 정확히 10년 전인 2011년 11월 26일에<br> 붉은 행성으로 출발한 큐리오시티는 지금까지도 왕성하게 화성 지표 여기저기를 배회하고 있다.
+        </div>
+        <img src="../images/2021_christmas_drink1.png" alt="드링크">
+        <script>
+            window.alert("3");
+        </script>
+    </body>
+</html>

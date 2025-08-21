@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div.selected>select.sigungu {
+                display: none;
+            }
+            div.a{
+                width:500px;
+                background-color:gray;
+            }
+        </style>
+        <script>
+            window.addEventListener('load',function(){
+                //dom트리에서 버튼객체찾기
+                let calcbtobjarr = document.querySelectorAll('div.calculator>button');
+                let calcinput = document.querySelector('div.calculator>input[type=text]');
+
+                //각버튼 클릭될때마다 button의 textnode값을 input의 value속성으로 대입한다.
+                for(var i=0;i<calcbtobjarr.length;i++){
+                    var calcbtobj = calcbtobjarr[i];
+                    calcbtobj.addEventListener('click',function(){
+                        var numText = calcbtobj.innerText;
+                        calcinput.value = numText; //calinput.innertext = numtext;(x)
+                    });
+                }
+                calcbtobjarr.forEach(function(calcbtobj,i){
+                    calcbtobj.addEventListener('click',function(){
+                    var numText = calcbtobj.innerText;
+                    calcinput.value = numText; //calinput.innertext = numtext;(x)
+                    });
+                });
+
+                //check----------------------------------------------------------------------------
+                var checkboxobjarr =document.querySelectorAll('div.checked>input[type=checkbox]');
+                var checkboxallobj=checkboxobjarr[0];
+                
+                checkboxallobj.addEventListener("click",function(){
+                // if(checkboxallobj.checked){
+                //     alert('all이 체크되었습니다.')
+                // }else{
+                //     alert('all이 해제되었습니다.');
+                // }
+                for(var i=1;i<checkboxobjarr.length;i++){
+                    checkboxobjarr[i].checked=checkboxallobj.checked;
+                }
+                });
+
+                //select---------------------------------------------------------------------------------
+                var selectobj = document.querySelector('div.selected>select.sido');
+                // selectobj.addEventListener('click',function(){
+                //     console.log(selectobj.value+"클릭됨.");
+                // });
+                var selectobj2 = document.querySelector('div.selected>select.sigungu');
+                selectobj.addEventListener('change',function(){
+                console.log(selectobj.value+"변경됨.");
+
+                selectobj2.style.display = 'none';
+                let options = '';
+                switch(selectobj.value){
+                    case '서울시':
+                        options+='<option>강북구</option>';
+                        options+='<option>강남구</option>';
+                        options+='<option>강동구</option>';
+                        options+='<option>강서구</option>';
+                        selectobj2.innerHTML=options;
+                        selectobj2.style.display = 'inline-block';
+                        break;
+                    case '경기도':
+                        options+='<option>성남시</option>';
+                        options+='<option>안양시</option>';
+                        options+='<option>파주시</option>';
+                        options+='<option>의정부시</option>';
+                        selectobj2.innerHTML=options;
+                        selectobj2.style.display = 'inline-block';
+                        break;
+                    case '전북':
+                        options+='<option>전주시</option>';
+                        options+='<option>정읍시</option>';
+                        options+='<option>김제시</option>';
+                        options+='<option>군산시</option>';
+                        selectobj2.innerHTML=options;
+                        selectobj2.style.display = 'inline-block';    
+                        break;
+                    case '경북':
+                        options+='<option>안동시</option>';
+                        options+='<option>포항시</option>';
+                        options+='<option>경주시</option>';
+                        selectobj2.innerHTML=options;
+                        selectobj2.style.display = 'inline-block';
+                        break;            
+                }  
+            });
+            //keyboard---------------------------------------------------------------------------------
+            var inputobj=document.querySelector("div.keyboard>input[type=text]");
+            inputobj.addEventListener('click',function(){
+                console.log('click');
+            });
+            inputobj.addEventListener('focus',function(){
+                console.log('focus');
+            });
+            //keydown->keypress->keyup
+            inputobj.addEventListener('keyup',function(key){
+                alert("입력된 값:"+key.key);
+                if(key.key =='enter'){
+                    alert('둣ㄷㄱ');
+                }
+                console.log(inputobj.value);
+                let inputvalue= inputobj.value;
+                inputobj.value=inputvalue.toUpperCase();
+            });
+
+            //submit--------------------------------------------------------------
+            //1.전송버튼클릭이벤트실행
+            //2.폼 submit이벤트실행
+            //3.기본이벤트핸들러 실행
+            let formobj = document.querySelector("div.submit>form");
+            formobj.addEventListener('submit',function(event){
+                alert('폼 submit됨.');
+                event.preventDefault();//기본이벤트핸들러 막기.
+            });
+            let submitbtobj = document.querySelector("div.submit>form>button");
+            submitbtobj.addEventListener('click',function(){
+                alert('submit버튼 클릭됨.');
+            });
+
+            //a----------------------------------------------------------------
+            let divaobj = document.querySelector('div.a');
+            divaobj.addEventListener('click',function(){
+                divaobj.style.backgroundColor='red';
+                divaobj.style.border = '1px solid';
+            });
+            let aobj = document.querySelector('div.a>a');
+            aobj.addEventListener('click',function(event){
+                alert("a 클릭됨");
+                //js에서도 특수문중 _, $만 가능. css에서의 프로퍼티중 하이픈(-)을 포함한 프로퍼티는 js에서는 하이픈을 빼고 사용해야함.
+                aobj.style.backgroundColor = 'yellow';
+                event.preventDefault();//기본이벤트핸들러 막기.
+                event.stopPropagation();//이벤트 전파 중지.
+            });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" readonly>
+            <button>7</button><button>8</button><button>9</button>
+            <button>4</button><button>5</button><button>6</button>
+            <button>1</button><button>2</button><button>3</button>
+            <button>0</button>
+        </div>
+
+        <div class="checked">
+            <input type="checkbox">ALL<br>
+            <input type="checkbox" checked>JAVA&nbsp;&nbsp;
+            <input type="checkbox">SQL&nbsp;&nbsp;
+            <input type="checkbox">JAVASCRIPT&nbsp;&nbsp;   
+        </div>
+
+        <div class="selected">
+            <select class="sido" style="border-radius: 10px;width: 300px;">
+                <option>시도를 선택하세요</option>
+                <option>서울시</option>
+                <option>경기도</option>
+                <option>전북</option>
+                <option>경북</option>
+            </select>
+            <select class="sigungu">
+                <option>시군구를 선택하세요</option>
+                <option></option>
+                <option></option>
+            </select>
+        </div>
+
+        <div class="keyboard">
+            <input type="text">
+        </div>
+        <hr>
+        <div class="submit">
+            <form action ="http://www.naver.com" method="get">
+                <input type="text" name="t" value="test"><br>
+                <button>전송</button>  <!--form안에서는 input=submit과 같음.-->
+            </form>
+        </div>
+
+        <div class="a">
+            <a href="http://www.google.com">구글</a>
+        </div>
+    </body>
+</html>

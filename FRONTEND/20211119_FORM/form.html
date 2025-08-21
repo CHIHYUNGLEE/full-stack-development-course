@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            form.html
+        </title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            <form action="http://localhost:8888/a.jsp" method="get" autocomplete="off">
+                <label>한줄입력란:
+                    <input type="text" 
+                           name="t" value="hello" maxlength="10" ></label><!--value: 기본값.-->
+                <label>비밀번호입력란:
+                    <input type="password" 
+                           name="p"value></label>
+
+                <fieldset>
+                <legend>사용가능한 언어</legend>
+                    <label><input type="checkbox" checked
+                                  name="c" value="java">JAVA</label>&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" checked
+                                   name="c" value="sql">SQL</label>
+                    <label><input type="checkbox"
+                                   name="c" value="html">HTML</label>
+                </fieldset>    
+
+                <fieldset>
+                    <legend>성별</legend>
+                    <input type="radio" name="r" value="m">남&nbsp;&nbsp;
+                    <input type="radio" name="r" value="f" checked>여
+                </fieldset>    
+
+                <input type="hidden" name="h" value="hiddendata">숨김
+                <input type="file" name="f">
+
+                <select name="s">
+                    <option          value="programmer">프로그래머</option>
+                    <option selected value="webpublisher">웹퍼블리셔</option>
+                    <option          value = "dataanalist">데이터분석가</option>
+                </select>
+                <textarea rows="5" cols="100" name="ta">여러줄입력란</textarea>
+
+                <input type="submit" value="전송1">
+                <button>전송2</button> <!--button type = "submit"과 같은 효과-->
+                <input type="button" value="일반버튼">
+
+                <input type="reset" value="clear">
+                <button type="reset">clear2</button>
+            
+            </form>
+            <button>일반버튼2</button> <!--button type = "button"과 같은 효과-->
+        </div>
+
+        <div>
+            <h3>HTML5에 추가된 input태그의 type속성들</h3>
+            <input type="number" max="10" min="1" step="2"><!--숫자 키패드들만 보임. 모바일용-->
+            <input type="email"><!--이메일 입력에 편리한 키패드들만 보임. 모바일용.유효성검사해줌.-->
+            <input type="date" max="2021-12-30" min="2021-11-01"><!--캘린더가 보여짐.-->
+            <input type="search"><!--타이핑한것을 한꺼번에 지울수 있는 x표시-->
+            <input type="range" min="1" max="10" value="7">
+        </div>
+
+        <div>
+            <h3>HTML5에 추가된 속성들</h3>
+            min,max<br>
+            <input type="text" required><!--required 반드시입력해야하는 요소-->
+            <input type="text" autofocus><!--autofocus 자동으로 포커스(커서)가 가게됨-->
+            <input type="text" autofocus placeholder="아이디를 입력하세요."><!--placeholder 입력해야할 값을 도와줌.-->
+            <!--autocomplete : 자동완성기능 사용on(기본),해제off-->
+        </div>
+    </body>
+</html>
