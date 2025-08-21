@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+        <title>상품목록</title>
+        <style>
+            body{
+                overflow: scroll;
+            }
+            div.productlist{
+                width: 100%;
+                height:100%;
+                /* max-width: 75%; */
+            }
+            div.productlist>div{
+                width:24%;
+                float: left;
+                margin:0.5%
+            }
+            div.productlist>div ul{
+                list-style-type: none;
+                padding-left: 0px;
+            }
+            div.productlist>div>ul li{
+                text-align: center;
+            }
+            div.productlist>div>ul>li>img{
+                width:100%;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="productlist">
+            <div>
+                <ul class="C0001">
+                    <li><img src="./images/C0001.jpg" alt="아메리카노"></li>
+                    <li><span>아메리카노</span></li>
+                </ul>
+            </div>
+            <div>
+                <ul >
+                    <li><img src="./images/C0002.jpg" alt="아이스아메리카노"></li>
+                    <li>아이스아메리카노</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><img src="./images/C0003.jpg" alt="라떼"></li>
+                    <li>라떼</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><img src="./images/C0004.jpg" alt="아이스라떼"></li>
+                    <li>아이스라떼</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><img src="./images/2021_christmas_drink1.png" alt="커피5"></li>
+                    <li>커피5</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
